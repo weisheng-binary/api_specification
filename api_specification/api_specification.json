@@ -1,0 +1,91 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "The api starts with `/v1/<contract-category>/`\neach category will have it's interface.\n- The only required parameters for `DIGITS` are `shortcode` + `currency`.\n- We have explicitly decided not to support back pricing in this endpoint.\n- A future endpoint will have an extra date_pricing parameter, to support back pricing.\n",
+    "version" : "1.0.0",
+    "title" : "Pricing Endpoint"
+  },
+  "host" : "virtserver.swaggerhub.com",
+  "basePath" : "/weisheng-binary/test/1.0.0",
+  "tags" : [ {
+    "name" : "v1",
+    "description" : "Retrieval of bid and ask price"
+  } ],
+  "schemes" : [ "https", "http" ],
+  "paths" : {
+    "/v1/DIGITS/{shortcode}/{currency}" : {
+      "get" : {
+        "tags" : [ "v1" ],
+        "summary" : "Price the DIGITS contract",
+        "description" : "Computation of ask price and bid price of DIGITS contract",
+        "operationId" : "digits",
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "shortcode",
+          "in" : "path",
+          "description" : "Shortcode",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "currency",
+          "in" : "path",
+          "description" : "Currency",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/v1"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Request"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "v1" : {
+      "type" : "object",
+      "properties" : {
+        "ask_price" : {
+          "type" : "number",
+          "format" : "float",
+          "example" : 0.51
+        },
+        "bid_price" : {
+          "type" : "number",
+          "format" : "float",
+          "example" : 0.49
+        },
+        "pricing_args" : {
+          "$ref" : "#/definitions/v1_pricing_args"
+        }
+      },
+      "xml" : {
+        "name" : "Order"
+      }
+    },
+    "v1_pricing_args" : {
+      "type" : "object",
+      "properties" : {
+        "spot" : {
+          "type" : "number",
+          "format" : "float",
+          "example" : 1.12
+        },
+        "spot_time" : {
+          "type" : "integer",
+          "format" : "int64",
+          "example" : 1614824991
+        }
+      }
+    }
+  }
+}

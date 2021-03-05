@@ -20,7 +20,7 @@
         "parameters" : [ {
           "name" : "shortcode",
           "in" : "path",
-          "description" : "Shortcode",
+          "description" : "Shortcode generated from the request (e.g., DIGITMATCH_R_10_18.18_1517876791_5T_7_0)",
           "required" : true,
           "type" : "string"
         }, {

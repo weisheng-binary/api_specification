@@ -78,7 +78,7 @@
       }
     }
   },
-  "host" : "virtserver.swaggerhub.com",
   "schemes" : [ "https", "http" ],
+  "host" : "virtserver.swaggerhub.com",
   "basePath" : "/weisheng-binary/test/1.0.0"
 }

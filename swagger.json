@@ -13,8 +13,8 @@
     "/v1/digits/{shortcode}/{currency}" : {
       "get" : {
         "tags" : [ "v1" ],
-        "summary" : "Price the DIGITS contract",
-        "description" : "Computation of ask price and bid price of DIGITS contract",
+        "summary" : "Price the final digit contract",
+        "description" : "Price that depends on the last digit of the last tick",
         "operationId" : "digits",
         "produces" : [ "application/json" ],
         "parameters" : [ {

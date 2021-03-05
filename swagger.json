@@ -16,7 +16,7 @@
         "summary" : "Price the DIGITS contract",
         "description" : "Computation of ask price and bid price of DIGITS contract",
         "operationId" : "digits",
-        "produces" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "shortcode",
           "in" : "path",
@@ -71,14 +71,10 @@
             },
             "spot_time" : {
               "type" : "integer",
-              "format" : "int64",
-              "example" : 1614824991
+              "format" : "int64"
             }
           }
         }
-      },
-      "xml" : {
-        "name" : "Order"
       }
     }
   },

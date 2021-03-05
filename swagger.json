@@ -10,7 +10,7 @@
     "description" : "Retrieval of bid and ask price"
   } ],
   "paths" : {
-    "/v1/DIGITS/{shortcode}/{currency}" : {
+    "/v1/digits/{shortcode}/{currency}" : {
       "get" : {
         "tags" : [ "v1" ],
         "summary" : "Price the DIGITS contract",
@@ -34,9 +34,8 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "type" : "array",
               "items" : {
-                "$ref" : "#/definitions/v1"
+                "$ref" : "#/definitions/price"
               }
             }
           },
@@ -48,7 +47,7 @@
     }
   },
   "definitions" : {
-    "v1" : {
+    "price" : {
       "type" : "object",
       "properties" : {
         "ask_price" : {

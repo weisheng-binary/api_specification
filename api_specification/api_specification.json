@@ -5,8 +5,6 @@
     "version" : "1.0.0",
     "title" : "Pricing Endpoint"
   },
-  "host" : "virtserver.swaggerhub.com",
-  "basePath" : "/weisheng-binary/test/1.0.0",
   "tags" : [ {
     "name" : "v1",
     "description" : "Retrieval of bid and ask price"

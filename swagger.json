@@ -70,7 +70,8 @@
             },
             "spot_time" : {
               "type" : "integer",
-              "format" : "int64"
+              "format" : "int64",
+              "example" : 1614907578
             }
           }
         }

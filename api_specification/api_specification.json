@@ -1,7 +1,7 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "description" : "The api starts with `/v1/<contract-category>/`\neach category will have its interface.\n- The only required parameters for `DIGITS` are `shortcode` + `currency`.\n- We have explicitly decided not to support back pricing in this endpoint.\n- A future endpoint will have an extra date_pricing parameter, to support back pricing.\n",
+    "description" : "The api starts with `/v1/<contract-category>/`\neach category will have its interface.",
     "version" : "1.0.0",
     "title" : "Pricing Endpoint"
   },

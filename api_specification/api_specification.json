@@ -1,0 +1,81 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "The api starts with `/v1/<contract-category>/`\neach category will have its interface.",
+    "version" : "1.0.0",
+    "title" : "Pricing Endpoint"
+  },
+  "tags" : [ {
+    "name" : "v1",
+    "description" : "Retrieval of bid and ask price"
+  } ],
+  "schemes" : [ "https", "http" ],
+  "paths" : {
+    "/v1/digits/{shortcode}/{currency}" : {
+      "get" : {
+        "tags" : [ "v1" ],
+        "summary" : "Price the final digit contract",
+        "description" : "Price that depends on the last digit of the last tick",
+        "operationId" : "digits",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "shortcode",
+          "in" : "path",
+          "description" : "Shortcode generated from the request (e.g., DIGITMATCH_R_10_18.18_1517876791_5T_7_0)",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "currency",
+          "in" : "path",
+          "description" : "Currency",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : { }
+          },
+          "400" : {
+            "description" : "Invalid Request"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "price" : {
+      "type" : "object",
+      "properties" : {
+        "ask_price" : {
+          "type" : "number",
+          "format" : "float",
+          "example" : 0.51
+        },
+        "bid_price" : {
+          "type" : "number",
+          "format" : "float",
+          "example" : 0.49
+        },
+        "pricing_args" : {
+          "$ref" : "#/definitions/price_pricing_args"
+        }
+      }
+    },
+    "price_pricing_args" : {
+      "type" : "object",
+      "properties" : {
+        "spot" : {
+          "type" : "number",
+          "format" : "float",
+          "example" : 1.12
+        },
+        "spot_time" : {
+          "type" : "integer",
+          "format" : "int64",
+          "example" : 1614907578
+        }
+      }
+    }
+  }
+}
